@@ -7,3 +7,7 @@ To install pexpect:
 pip install pexpect
 
 The light_cycle.py has been tested on linux not windows. As far as I know it should work on both.
+
+Call the server in linux with the format
+
+light_cycle CLIENT_PATH CLIENT_PATH [GRID_LENGTH]
