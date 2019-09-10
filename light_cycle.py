@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import pexpect #will need to be installed for this to work
 import pexpect.popen_spawn
 import sys
