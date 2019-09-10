@@ -10,6 +10,7 @@ import pprint
 if len(sys.argv) == 3:
     red_player_file = sys.argv[1]
     blue_player_file = sys.argv[2]
+    grid_length = 10
 elif len(sys.argv) == 4:
     red_player_file = sys.argv[1]
     blue_player_file = sys.argv[2]
@@ -235,6 +236,6 @@ red_car, blue_car = init_cars() #initializes red and blue cars position and send
 while True: 
     referee_light_cycle(red_car,blue_car)
     #os.system('cls' if os.name == 'nt' else 'clear')
-    time.sleep(.1)
+    #time.sleep(.1)
     pprint.pprint(grid)
     print()

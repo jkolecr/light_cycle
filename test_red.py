@@ -9,4 +9,5 @@ def random_walk_yolo():
 grid_length = int(input('ready'))
 while True:
     desired_move = random_walk_yolo()
-    print(desired_move)
+    #print(desired_move)
+    print("forward")
