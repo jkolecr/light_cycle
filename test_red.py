@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import random
 
 cycle_count = 0

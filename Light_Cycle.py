@@ -184,9 +184,10 @@ def init_cars(time_out = 5):
         red = pexpect.popen_spawn.PopenSpawn('python3 ' + red_player_file)
         blue = pexpect.popen_spawn.PopenSpawn('python3 ' + blue_player_file)
     else:
-        red = pexpect.spawn('python3 ' + red_player_file)  #spawn red player process
-        blue = pexpect.spawn('python3 ' + blue_player_file)#spawn blue player process
-
+        # red = pexpect.spawn('python3 ' + red_player_file)  #spawn red player process
+        # blue = pexpect.spawn('python3 ' + blue_player_file)#spawn blue player process
+        red = pexpect.spawn('./' + red_player_file)  #spawn red player process
+        blue = pexpect.spawn('./' + blue_player_file)#spawn blue player process
 
     #red.logfile_read = sys.stdout.buffer #tells pexpect to write all output to main process stdout should only be uncommited for debuging
     #blue.logfile = sys.stdout.buffer #tells pexpect to write all output to main process stdout should only be uncommited for debuging
