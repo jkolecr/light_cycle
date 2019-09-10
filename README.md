@@ -1,5 +1,5 @@
 # light_cycle
-A coding game for beginner programmers too experienced veteran AI designers
+A coding game for beginner programmers to experienced veteran AI designers
 
 Requires pexpect python library to run (because i am lazy :/) if this beecomes big enough of a problems I will make it work with out pexpect
 
