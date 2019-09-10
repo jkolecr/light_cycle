@@ -95,9 +95,9 @@ def random_walk_no_crash(grid,grid_lenth): #with self worth this time
 
 grid_length, grid = init_vars()
 while True:
-    #desired_move,grid = random_walk_no_crash(grid,grid_length)
-    #print(desired_move)
-    input("ready")
-    print("forward")
+    desired_move,grid = random_walk_no_crash(grid,grid_length)
+    print(desired_move)
+    #input("ready")
+    #print("forward")
 
     

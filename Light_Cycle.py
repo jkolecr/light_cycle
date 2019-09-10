@@ -132,7 +132,7 @@ def referee_light_cycle(red_car,blue_car):
     blue_desired_move_x, blue_desired_move_y = blue_car.update_position()                    #Translates where the blue car wants to go and returns its desired_x and desired_y
 
     if red_desired_move_x == blue_desired_move_x and red_desired_move_y == blue_desired_move_y:
-        print("Pow! both cars crashed into each other.....Tie!")
+        print("Tie")
         sys.exit(0)
 
     #print('red_future_x: ',red_desired_move_x,'red_future_y: ',red_desired_move_y)
@@ -155,13 +155,13 @@ def referee_light_cycle(red_car,blue_car):
             blue_car.crashed()
 
     if red_car.get_crashed() and blue_car.get_crashed():
-        print('Pow! Both cars crashed at the same time....Tie!')
+        print('Tie')
         sys.exit(0)
     elif red_car.get_crashed():
-        print('Pow! '+red_player_file+' has crashed! With a last move of '+ red_car.get_next_move()+ '. '+ blue_player_file+ ' is the winner!!')
+        print('Winner',blue_player_file)
         sys.exit(0)
     elif blue_car.get_crashed():
-        print('Pow! '+blue_player_file+' has crashed! With a last move of ' + blue_car.get_next_move()+ '. ' +red_player_file+ ' is the winner!!')
+        print('Winner',red_player_file)
         sys.exit(0)
     else:
         grid[red_desired_move_y][red_desired_move_x] = 'R'
