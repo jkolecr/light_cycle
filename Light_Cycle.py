@@ -14,7 +14,7 @@ elif len(sys.argv) == 4:
     blue_player_file = sys.argv[2]
     grid_length = int(sys.argv[3])
 else:
-    red_player_file = 'test_red.py' #hard coded files to be used as bike controls
+    red_player_file = 'test_yellow' #hard coded files to be used as bike controls
     blue_player_file = 'test_blue.py'
     grid_length = 10
 
