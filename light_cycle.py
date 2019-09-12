@@ -48,8 +48,8 @@ class Bike:
         self.__pos_y = self.__future_y
 
     def state_transaction(self,grid,enemy_state_string): #sends car state string and oppents state string to process and expects next move to be returned
-        i = self.__process.expect(['ready',pexpect.TIMEOUT,pexpect.EOF],timeout = self.__time_out)
-
+        #i = self.__process.expect(['ready',pexpect.TIMEOUT,pexpect.EOF],timeout = self.__time_out)
+        i = self.__process.expect(['ready',pexpect.TIMEOUT,pexpect.EOF])
         if i == 1:
             print('Time out on ' + self.__file_name +'. Ready signal not sent')
             self.__timeout = True
@@ -61,8 +61,8 @@ class Bike:
 
         number_bytes = self.__process.sendline(out_put)
 
-        i = self.__process.expect(['left','right','forward',pexpect.TIMEOUT,pexpect.EOF],timeout = self.__time_out)
-
+        #i = self.__process.expect(['left','right','forward',pexpect.TIMEOUT,pexpect.EOF],timeout = self.__time_out)
+        i = self.__process.expect(['left','right','forward',pexpect.TIMEOUT,pexpect.EOF])
         if i == 0:
             self.__next_move = 'left'
         elif i == 1:
@@ -183,18 +183,18 @@ def init_cars(time_out = 5):
     coin_flip = random.randint(0,1)
 
     if os.name == 'nt':
-        red = pexpect.popen_spawn.PopenSpawn('python3 ' + red_player_file)
-        blue = pexpect.popen_spawn.PopenSpawn('python3 ' + blue_player_file)
+        red = pexpect.popen_spawn.PopenSpawn('start ' + red_player_file)
+        blue = pexpect.popen_spawn.PopenSpawn('start ' + blue_player_file)
     else:
         # red = pexpect.spawn('python3 ' + red_player_file)  #spawn red player process
         # blue = pexpect.spawn('python3 ' + blue_player_file)#spawn blue player process
         red = pexpect.spawn('./' + red_player_file)  #spawn red player process
         blue = pexpect.spawn('./' + blue_player_file)#spawn blue player process
-
+    red.timeout = time_out
+    blue.timeout = time_out
     #red.logfile_read = sys.stdout.buffer #tells pexpect to write all output to main process stdout should only be uncommited for debuging
     #blue.logfile = sys.stdout.buffer #tells pexpect to write all output to main process stdout should only be uncommited for debuging
-
-    i = red.expect(['ready',pexpect.TIMEOUT,pexpect.EOF],timeout = time_out) #wait for red child process to send 'ready' 
+    i = red.expect(['ready',pexpect.TIMEOUT,pexpect.EOF]) #wait for red child process to send 'ready' 
 
     if i == 1:  #reacts on if red expect times out or errors        
         print('Time out on ' + red_player_file +'. Ready signal not sent in start transaction')
@@ -205,7 +205,7 @@ def init_cars(time_out = 5):
 
     red.sendline(str(grid_length)) #sends grid_lenth to red process so it can build its model
 
-    i = blue.expect(['ready',pexpect.TIMEOUT,pexpect.EOF],timeout = time_out) #wait for blue child process to send 'ready' 
+    i = blue.expect(['ready',pexpect.TIMEOUT,pexpect.EOF]) #wait for blue child process to send 'ready' 
 
     if i == 1:  #reacts on if blue expect times out or errors       
         print('Time out on ' + blue_player_file +'. Ready signal not sent in start transaction')
@@ -232,10 +232,10 @@ def init_cars(time_out = 5):
 
 
 
-red_car, blue_car = init_cars() #initializes red and blue cars position and sends them information on grid size 
+red_car, blue_car = init_cars(2) #initializes red and blue cars position and sends them information on grid size 
 while True: 
     referee_light_cycle(red_car,blue_car)
     #os.system('cls' if os.name == 'nt' else 'clear')
     #time.sleep(.1)
-    pprint.pprint(grid)
-    print()
+    #pprint.pprint(grid)
+    #print()
