@@ -4,7 +4,7 @@ import pexpect.popen_spawn
 import sys
 import random
 import time
-import pandas 
+#import pandas 
 import os
 import pprint
 if len(sys.argv) == 3:
@@ -16,8 +16,8 @@ elif len(sys.argv) == 4:
     blue_player_file = sys.argv[2]
     grid_length = int(sys.argv[3])
 else:
-    red_player_file = 'test_yellow' #hard coded files to be used as bike controls
-    blue_player_file = 'test_blue.py'
+    red_player_file = 'test_red.py' #hard coded files to be used as bike controls
+    blue_player_file = 'test_red.py'
     grid_length = 10
 
 grid = [['.'] * grid_length for i in range(grid_length)] #first value in 2d list is row then col or y then x
@@ -237,5 +237,5 @@ while True:
     referee_light_cycle(red_car,blue_car)
     #os.system('cls' if os.name == 'nt' else 'clear')
     #time.sleep(.1)
-    #pprint.pprint(grid)
-    #print()
+    pprint.pprint(grid)
+    print()
