@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 import pexpect #will need to be installed for this to work
 import pexpect.popen_spawn
+
 import sys
 import random
 import time
-#import pandas 
 import os
 import pprint
+
 if len(sys.argv) == 3:
     red_player_file = sys.argv[1]
     blue_player_file = sys.argv[2]
